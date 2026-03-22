@@ -19,8 +19,8 @@ const translations = {
 
   // --- 筛选栏 ---
   searchPlaceholder: {
-    zh: '搜一搜你想吃的...',
-    en: 'Search for a dish...',
+    zh: '搜菜名...',
+    en: 'Dish name...',
   },
   allCategories: {
     zh: '全部分类',
@@ -31,8 +31,8 @@ const translations = {
     en: 'All Levels',
   },
   filterByIngredient: {
-    zh: '按食材筛选...',
-    en: 'Filter by ingredient...',
+    zh: '食材...',
+    en: 'ingredient...',
   },
 
   // --- 菜谱卡片 ---
