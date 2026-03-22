@@ -10,7 +10,7 @@ const translations = {
   // --- 网站标题和标语 ---
   siteTitle: {
     zh: '一起吃饭吧',
-    en: 'Dine with Wenli',
+    en: 'Dine with Wenli & Zeyong',
   },
   siteSlogan: {
     zh: '我把心意，慢慢做进每一道菜里',
