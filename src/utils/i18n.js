@@ -32,7 +32,7 @@ const translations = {
   },
   filterByIngredient: {
     zh: '食材...',
-    en: 'ingredient...',
+    en: 'Ingredient...',
   },
 
   // --- 菜谱卡片 ---
