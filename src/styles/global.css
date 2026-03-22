@@ -1,0 +1,113 @@
+/* ============================================
+   全局样式 - 温暖浅棕木质感主题
+   ============================================ */
+
+:root {
+  /* 主色调 - 清晰暖棕色系 */
+  --color-primary: #8D6E63;        /* 中浅棕，主色/按钮 */
+  --color-primary-light: #F5EFE6;  /* 极浅棕，hover/背景色块 */
+  --color-primary-dark: #5D4037;   /* 深棕，按钮 hover/标题 */
+  --color-accent: #A1887F;         /* 柔和棕，辅助装饰 */
+
+  /* 背景色 */
+  --color-bg: #FDFAF6;             /* 暖米白，主背景 */
+  --color-bg-card: #FFFFFF;        /* 纯白，卡片背景 */
+  --color-bg-warm: #F8F2EB;        /* 暖米色，特殊区域 */
+  --color-bg-dark: #6D4C41;        /* 中深棕背景 */
+
+  /* 文字色 */
+  --color-text: #4E342E;           /* 较深棕，主文字，清晰可读 */
+  --color-text-light: #795548;     /* 中棕，次要文字 */
+  --color-text-inverse: #FDFAF6;   /* 米白，深色背景上的文字 */
+  --color-text-muted: #BCAAA4;     /* 浅棕，提示文字 */
+
+  /* 边框 */
+  --color-border: #E0D5CC;         /* 浅棕边框 */
+  --color-border-light: #EDE7E1;   /* 更浅的边框 */
+
+  /* 标签颜色 - 柔和自然色系 */
+  --color-tag-veggie: #7CB342;
+  --color-tag-meat: #C62828;
+  --color-tag-staple: #EF6C00;
+  --color-tag-seafood: #0277BD;
+  --color-tag-oven: #D84315;
+  --color-tag-dessert: #AD1457;
+  --color-tag-egg: #F9A825;
+  --color-tag-snack: #6A1B9A;
+  --color-tag-cold: #2E7D32;
+
+  /* 难度颜色 */
+  --color-easy: #558B2F;
+  --color-medium: #E65100;
+  --color-hard: #B71C1C;
+
+  /* 圆角 */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  /* 阴影 - 柔和 */
+  --shadow-sm: 0 1px 4px rgba(93, 64, 55, 0.05);
+  --shadow-md: 0 3px 12px rgba(93, 64, 55, 0.08);
+  --shadow-lg: 0 8px 28px rgba(93, 64, 55, 0.12);
+
+  /* 动画 */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+}
+
+/* --- 全局重置 --- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, 'PingFang SC', 'Helvetica Neue', 'Microsoft YaHei', sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--color-primary-dark);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-primary);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* --- 滚动条美化 --- */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+}

@@ -1,0 +1,194 @@
+/* ============================================
+   Header 样式 - 背景图片版
+   ============================================ */
+
+.header {
+  position: relative;
+  color: var(--color-text);
+}
+
+/* 背景图片用伪元素实现 */
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: var(--header-bg);
+  background-size: cover;
+  background-position: center 70%;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+/* 半透明遮罩 - 让背景图变淡 */
+.header::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 252, 245, 0.3);
+  z-index: 0;
+}
+
+
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3.5rem 2rem 3rem;
+  gap: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================
+   标题文字
+   ============================================ */
+.header-title-group {
+  flex: 1;
+  text-align: center;
+}
+
+
+.header-title {
+  font-size: 2.8rem;
+  font-weight: 600;
+  letter-spacing: 6px;
+  color: var(--color-primary-dark);
+  text-shadow:
+    0 0 10px rgba(255, 255, 255, 1),
+    0 0 20px rgba(255, 255, 255, 1),
+    0 0 40px rgba(255, 255, 255, 0.8),
+    0 0 60px rgba(255, 255, 255, 0.5);
+}
+
+.header-slogan {
+  font-size: 1.05rem;
+  color: var(--color-primary-dark);
+  letter-spacing: 3px;
+  margin-top: 0.5rem;
+  text-shadow:
+    0 0 10px rgba(255, 255, 255, 1),
+    0 0 20px rgba(255, 255, 255, 1),
+    0 0 40px rgba(255, 255, 255, 0.7);
+}
+
+/* ============================================
+   按钮
+   ============================================ */
+.header-actions {
+  display: flex;
+  gap: 0.6rem;
+  flex-shrink: 0;
+}
+
+.header-btn {
+  background: rgba(255, 255, 255, 0.65);
+  color: var(--color-primary);
+  padding: 0.45rem 0.9rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  border: 1px solid rgba(93, 64, 55, 0.15);
+  transition: all var(--transition-fast);
+  backdrop-filter: blur(4px);
+}
+
+.header-btn:hover {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(93, 64, 55, 0.3);
+}
+
+/* 语言切换 - 醒目样式 */
+.lang-toggle {
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  border: 1px solid var(--color-primary);
+  font-weight: 500;
+  padding: 0.45rem 1.2rem;
+  letter-spacing: 0.5px;
+}
+
+.lang-toggle:hover {
+  background: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+}
+
+/* ============================================
+   菜谱总数
+   ============================================ */
+.header-recipe-count {
+  text-align: center;
+  padding: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--color-primary-dark);
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid rgba(93, 64, 55, 0.2);
+  letter-spacing: 1px;
+  text-shadow:
+    0 0 10px rgba(255, 255, 255, 1),
+    0 0 20px rgba(255, 255, 255, 0.9);
+}
+
+/* ============================================
+   汉堡菜单（手机端）
+   ============================================ */
+.header-menu-btn {
+  display: none;
+}
+
+/* ============================================
+   手机端适配
+   ============================================ */
+@media (max-width: 768px) {
+  .header-top {
+    padding: 2.5rem 1rem 2rem;
+  }
+
+  .header-title {
+    font-size: 1.8rem;
+    letter-spacing: 3px;
+  }
+
+  .header-slogan {
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+  }
+
+  .header-menu-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    background: rgba(255, 255, 255, 0.4);
+    padding: 8px;
+    border-radius: var(--radius-sm);
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(93, 64, 55, 0.15);
+    position: relative;
+    z-index: 1;
+  }
+
+  .header-menu-btn:hover {
+    background: rgba(255, 255, 255, 0.8);
+  }
+
+  .hamburger-line {
+    display: block;
+    width: 18px;
+    height: 1.5px;
+    background: var(--color-primary);
+    border-radius: 1px;
+  }
+
+  .header-btn {
+    padding: 0.4rem 0.7rem;
+    font-size: 0.8rem;
+  }
+}
