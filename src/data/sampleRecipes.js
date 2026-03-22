@@ -8,11 +8,12 @@
 export const CATEGORIES = [
   { id: 'veggie',  zh: '家常素菜', en: 'Homestyle Veggie',  emoji: '🥬' },
   { id: 'meat',    zh: '硬核荤菜', en: 'Hearty Meat',       emoji: '🥩' },
-  { id: 'staple',  zh: '特色主食', en: 'Signature Staples',  emoji: '🍜' },
+  { id: 'tofu',    zh: '香浓豆腐', en: 'Tofu Delights',     emoji: '🧈' },
   { id: 'seafood', zh: '水产海鲜', en: 'Seafood',           emoji: '🐟' },
-  { id: 'oven',    zh: '烤箱主场', en: 'Oven Specials',     emoji: '🔥' },
-  { id: 'dessert', zh: '香浓甜品', en: 'Sweet Treats',      emoji: '🍰' },
   { id: 'egg',     zh: '万能鸡蛋', en: 'Egg-cellent',       emoji: '🥚' },
+  { id: 'staple',  zh: '特色主食', en: 'Signature Staples', emoji: '🍜' },
+  { id: 'dessert', zh: '香浓甜品', en: 'Sweet Treats',      emoji: '🍰' },
+  { id: 'oven',    zh: '烤箱主场', en: 'Oven Specials',     emoji: '🔥' },
   { id: 'snack',   zh: '风味小吃', en: 'Savory Snacks',     emoji: '🥟' },
   { id: 'cold',    zh: '爽口凉菜', en: 'Cool & Refreshing', emoji: '🥗' },
 ];
@@ -21,7 +22,7 @@ export const CATEGORIES = [
 export const DIFFICULTIES = [
   { id: 'easy',   zh: '简单',   en: 'Easy',     emoji: '😊' },
   { id: 'medium', zh: '中等',   en: 'Medium',   emoji: '🤔' },
-  { id: 'hard',   zh: '费功夫', en: 'Advanced', emoji: '💪' },
+  { id: 'hard',   zh: '困难',   en: 'Hard',     emoji: '💪' },
 ];
 
 // 示例菜谱数据
