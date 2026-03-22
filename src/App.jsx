@@ -89,15 +89,8 @@ function App() {
 
   /* ====== 收集所有标签（去重，用于标签筛选下拉框） ====== */
   const allTags = [...new Set(
-    recipes.flatMap((r) => r.tags[lang])
+    recipes.flatMap((r) => fallbackArray(r.tags, lang))
   )].filter(Boolean).sort();
-  /*
-    flatMap: 先把每道菜的标签数组展开成一个大数组，
-    new Set: 去重（Set 不允许重复值），
-    [...]: 把 Set 转回数组，
-    filter(Boolean): 去掉空字符串，
-    sort(): 按字母排序
-  */
 
   /* ====== 筛选逻辑 ====== */
   const filteredRecipes = recipes.filter((recipe) => {
@@ -105,7 +98,7 @@ function App() {
       searchText === '' ||
       recipe.nameZh.includes(searchText) ||
       recipe.nameEn.toLowerCase().includes(searchText.toLowerCase()) ||
-      recipe.tags[lang].some((tag) =>
+      fallbackArray(recipe.tags, lang).some((tag) =>
         tag.toLowerCase().includes(searchText.toLowerCase())
       );
 
@@ -114,13 +107,13 @@ function App() {
 
     const matchesIngredient =
       ingredientFilter === '' ||
-      recipe.ingredients[lang].some((ing) =>
+      fallbackArray(recipe.ingredients, lang).some((ing) =>
         ing.toLowerCase().includes(ingredientFilter.toLowerCase())
       );
 
     const matchesTag =
       selectedTag === '' ||
-      recipe.tags[lang].includes(selectedTag);
+      fallbackArray(recipe.tags, lang).includes(selectedTag);
 
     return matchesSearch && matchesDifficulty && matchesIngredient && matchesTag;
   });
@@ -461,20 +454,18 @@ function App() {
                               </ul>
                             </div>
 
-                            <div className="detail-section">
-                              <h4 className="detail-title">
-                                👩‍🍳 {t('steps', lang)}
-                              </h4>
-                              {fallbackArray(recipe.steps, lang).length > 0 ? (
+                            {fallbackArray(recipe.steps, lang).length > 0 && (
+                              <div className="detail-section">
+                                <h4 className="detail-title">
+                                  👩‍🍳 {t('steps', lang)}
+                                </h4>
                                 <ol className="step-list">
                                   {fallbackArray(recipe.steps, lang).map((step, i) => (
                                     <li key={i}>{step}</li>
                                   ))}
                                 </ol>
-                              ) : (
-                                <p className="no-steps">{t('noSteps', lang)}</p>
-                              )}
-                            </div>
+                              </div>
+                            )}
 
                             {fallback(recipe.tips, lang) && (
                               <div className="detail-section detail-tips">
