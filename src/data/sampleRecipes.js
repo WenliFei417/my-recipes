@@ -10,7 +10,6 @@ export const CATEGORIES = [
   { id: 'meat',    zh: '硬核荤菜', en: 'Hearty Meat',       emoji: '🥩' },
   { id: 'tofu',    zh: '香浓豆腐', en: 'Tofu Delights',     emoji: '🧈' },
   { id: 'seafood', zh: '水产海鲜', en: 'Seafood',           emoji: '🐟' },
-  { id: 'egg',     zh: '万能鸡蛋', en: 'Egg-cellent',       emoji: '🥚' },
   { id: 'staple',  zh: '特色主食', en: 'Signature Staples', emoji: '🍜' },
   { id: 'dessert', zh: '香浓甜品', en: 'Sweet Treats',      emoji: '🍰' },
   { id: 'oven',    zh: '烤箱主场', en: 'Oven Specials',     emoji: '🔥' },
