@@ -1,70 +1,101 @@
-# Getting Started with Create React App
+# 🍽️ Dine with Wenli
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Personal Recipe Collection & Management Platform**
 
-## Available Scripts
+A bilingual (Chinese/English) personal recipe website where I showcase my home-cooked dishes. Visitors can explore recipes by category, difficulty, ingredients, and custom tags. As the admin, I can manage all recipes directly from the frontend — adding, editing, and deleting dishes with image uploads, all persisted to GitHub as a backend-free data store.
 
-In the project directory, you can run:
+🔗 **Live Demo:** [wenli-recipes.vercel.app](https://wenli-recipes.vercel.app)
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## ✨ Highlights
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Serverless Architecture** — No traditional backend; GitHub serves as both database and image host
+- **GitHub-as-Database** — Recipe data (JSON) and images stored directly in a GitHub repository via the Contents API
+- **GitHub OAuth Admin System** — Secure admin login with GitHub OAuth; only the repo owner can manage recipes
+- **Bilingual with Smart Fallback** — Full Chinese/English support with one-click switching; untranslated fields automatically fall back to the available language
+- **Category Sidebar with Scroll Sync** — Left sidebar highlights the current category as the user scrolls
+- **Responsive Mobile Layout** — Optimized for mobile with a floating category menu button and adaptive card sizes
+- **Image Upload via GitHub API** — Upload recipe images directly from the browser, stored in the GitHub repo
 
-### `npm test`
+## 🛠️ Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+| Layer | Technology |
+|-------|-----------|
+| Frontend | React |
+| Styling | CSS3 (custom properties, responsive design) |
+| Data Storage | GitHub API (Contents API) |
+| Image Storage | GitHub Repository |
+| Authentication | GitHub OAuth |
+| Hosting | Vercel |
+| Serverless Function | Vercel Serverless (OAuth token exchange) |
 
-### `npm run build`
+## 📁 Project Structure
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+├── api/
+│   └── auth.js                 # Vercel Serverless Function (OAuth)
+├── public/
+│   └── images/                 # Static images
+├── src/
+│   ├── components/
+│   │   ├── Auth/
+│   │   ├── FilterBar/
+│   │   ├── Header/
+│   │   ├── RecipeForm/
+│   │   ├── RecipeList/
+│   │   └── Sidebar/
+│   ├── data/
+│   ├── styles/
+│   └── utils/
+└── .env
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🚀 Getting Started
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Prerequisites
 
-### `npm run eject`
+- Node.js (v18+)
+- A GitHub account
+- Vercel CLI (`npm install -g vercel`)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Setup
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. **Clone the repo**
+   ```bash
+   git clone https://github.com/WenliFei417/my-recipes.git
+   cd my-recipes
+   npm install
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2. **Create a data repository** on GitHub (e.g. `my-recipes-data`) with:
+   - `data/recipes.json` (content: `[]`)
+   - `images/.gitkeep`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3. **Register a GitHub OAuth App** at [github.com/settings/developers](https://github.com/settings/developers)
 
-## Learn More
+4. **Create `.env`** in the project root:
+   ```
+   REACT_APP_GITHUB_OWNER=your-github-username
+   REACT_APP_GITHUB_REPO=my-recipes-data
+   REACT_APP_GITHUB_CLIENT_ID=your-client-id
+   GITHUB_CLIENT_ID=your-client-id
+   GITHUB_CLIENT_SECRET=your-client-secret
+   GITHUB_OWNER=your-github-username
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+5. **Run locally**
+   ```bash
+   vercel dev
+   ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Deploy
 
-### Code Splitting
+1. Push code to GitHub
+2. Import the repo on [vercel.com](https://vercel.com)
+3. Add the environment variables in Vercel project settings
+4. Update your GitHub OAuth App's callback URL to your Vercel domain
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 📄 License
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is for personal use. Feel free to reference the architecture for your own projects.
