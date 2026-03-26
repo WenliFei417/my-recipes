@@ -12,6 +12,7 @@ import Header from './components/Header/Header';
 import FilterBar from './components/FilterBar/FilterBar';
 import Sidebar from './components/Sidebar/Sidebar';
 import RecipeForm from './components/RecipeForm/RecipeForm';
+import AiRecommend from './components/AiRecommend/AiRecommend';
 
 function App() {
   /* ====== 状态 ====== */
@@ -369,6 +370,7 @@ function App() {
                     {categoryRecipes.map((recipe) => (
                       <div
                         key={recipe.id}
+                        id={`recipe-${recipe.id}`}
                         className={`recipe-card ${expandedRecipeId === recipe.id ? 'expanded' : ''}`}
                       >
                         <div
@@ -492,6 +494,7 @@ function App() {
       </div>
 
       {/* 菜谱表单弹窗 */}
+      <AiRecommend recipes={recipes} lang={lang} />
       {showForm && (
         <RecipeForm
           lang={lang}
