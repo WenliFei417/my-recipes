@@ -2,7 +2,9 @@
 
 **Personal Recipe Collection & Management Platform**
 
-A bilingual (Chinese/English) personal recipe website where I showcase my home-cooked dishes. Visitors can explore recipes by category, difficulty, ingredients, and custom tags. As the admin, I can manage all recipes directly from the frontend — adding, editing, and deleting dishes with image uploads, all persisted to GitHub as a backend-free data store.
+A bilingual (Chinese/English) personal recipe website where I showcase my home-cooked dishes. The site features a clean, warm aesthetic with a category-based browsing experience. Visitors can explore recipes by category, difficulty, ingredients, and custom tags — or let AI recommend dishes based on what they're craving.
+
+As the admin, I can manage all recipes directly from the frontend — adding, editing, and deleting dishes with image uploads, all persisted to GitHub as a backend-free data store.
 
 🔗 **Live Demo:** [wenli-recipes.vercel.app](https://wenli-recipes.vercel.app)
 
@@ -10,7 +12,8 @@ A bilingual (Chinese/English) personal recipe website where I showcase my home-c
 
 ## ✨ Highlights
 
-- **Serverless Architecture** — No traditional backend; GitHub serves as both database and image host
+- **AI-Powered Recipe Recommendation** — Users describe what they want to eat, and OpenAI (gpt-4o-mini) recommends matching dishes from the existing recipe collection via a Vercel Serverless Function
+- **Serverless Architecture** — No traditional backend; GitHub serves as both database and image host, OpenAI API called through Vercel Serverless Functions
 - **GitHub-as-Database** — Recipe data (JSON) and images stored directly in a GitHub repository via the Contents API
 - **GitHub OAuth Admin System** — Secure admin login with GitHub OAuth; only the repo owner can manage recipes
 - **Bilingual with Smart Fallback** — Full Chinese/English support with one-click switching; untranslated fields automatically fall back to the available language
@@ -24,30 +27,35 @@ A bilingual (Chinese/English) personal recipe website where I showcase my home-c
 |-------|-----------|
 | Frontend | React |
 | Styling | CSS3 (custom properties, responsive design) |
+| AI Recommendation | OpenAI API (gpt-4o-mini) |
 | Data Storage | GitHub API (Contents API) |
 | Image Storage | GitHub Repository |
 | Authentication | GitHub OAuth |
 | Hosting | Vercel |
-| Serverless Function | Vercel Serverless (OAuth token exchange) |
+| Serverless Functions | Vercel Serverless (OAuth token exchange, AI recommendation) |
 
 ## 📁 Project Structure
 
 ```
 ├── api/
-│   └── auth.js                 # Vercel Serverless Function (OAuth)
+│   ├── auth.js                 # Vercel Serverless Function (OAuth)
+│   └── recommend.js            # Vercel Serverless Function (AI recommendation)
 ├── public/
 │   └── images/                 # Static images
 ├── src/
 │   ├── components/
+│   │   ├── AiRecommend/        # AI recommendation floating panel
 │   │   ├── Auth/
 │   │   ├── FilterBar/
 │   │   ├── Header/
 │   │   ├── RecipeForm/
-│   │   ├── RecipeList/
 │   │   └── Sidebar/
 │   ├── data/
 │   ├── styles/
 │   └── utils/
+│       ├── github.js           # GitHub API utilities
+│       ├── i18n.js             # Internationalization helpers
+│       └── recommend.js        # AI recommendation API utility
 └── .env
 ```
 
@@ -57,6 +65,7 @@ A bilingual (Chinese/English) personal recipe website where I showcase my home-c
 
 - Node.js (v18+)
 - A GitHub account
+- An OpenAI API key ([platform.openai.com](https://platform.openai.com))
 - Vercel CLI (`npm install -g vercel`)
 
 ### Setup
@@ -82,6 +91,7 @@ A bilingual (Chinese/English) personal recipe website where I showcase my home-c
    GITHUB_CLIENT_ID=your-client-id
    GITHUB_CLIENT_SECRET=your-client-secret
    GITHUB_OWNER=your-github-username
+   OPENAI_API_KEY=your-openai-api-key
    ```
 
 5. **Run locally**
@@ -93,7 +103,7 @@ A bilingual (Chinese/English) personal recipe website where I showcase my home-c
 
 1. Push code to GitHub
 2. Import the repo on [vercel.com](https://vercel.com)
-3. Add the environment variables in Vercel project settings
+3. Add the environment variables in Vercel project settings (including `OPENAI_API_KEY`)
 4. Update your GitHub OAuth App's callback URL to your Vercel domain
 
 ## 📄 License
